@@ -1,0 +1,25 @@
+.footer-container {
+    background: #000000;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .contact-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .contact-list li {
+    margin: 5px 0;
+  }
+  
+  .contact-list a {
+    color: #f4a261;
+    text-decoration: none;
+  }
+  
+  .contact-list a:hover {
+    text-decoration: underline;
+  }
+  

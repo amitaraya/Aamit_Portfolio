@@ -1,0 +1,84 @@
+.circular-card {
+  /* padding: 1.5rem; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.circular-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  /* margin-bottom: 1.5rem; */
+  color: #fff;
+}
+
+.circular-container {
+  position: relative;
+  width: 800px;
+  height: 800px;
+
+  /* border-radius: 50%; */
+  background: black;
+  overflow: hidden;
+    align-items: center;
+  justify-content: center;
+}
+
+.circular-item {
+  position: absolute;
+  transition: transform 0.3s ease;
+}
+
+.circular-item:hover {
+  transform: scale(1.25);
+  z-index: 2;
+}
+
+.circular-icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  font-size: 1.5rem;
+}
+
+
+.tooltip {
+  position: absolute;
+  bottom: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.circular-item:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Optional: Add a small arrow pointing up to the icon */
+.tooltip::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid rgba(0, 0, 0, 0.8);
+}

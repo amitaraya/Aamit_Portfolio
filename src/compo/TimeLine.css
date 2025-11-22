@@ -1,0 +1,600 @@
+/* ===============================
+   Timeline Container & Typography
+   =============================== */
+   .timeline-con {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   }
+.timeline-container {
+  max-width: 100%;
+  text-align: center;
+  overflow: visible;
+  background: #000000;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  padding-bottom: 2rem;
+}
+
+.title-box {
+  margin-bottom: 1.5rem;
+  padding: 0 1rem;
+}
+
+.section-title {
+  font-size: clamp(28px, 5vw, 36px);
+  color: #ffffff;
+  font-weight: 700;
+  margin: 0;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: #ffffff;
+  border-radius: 2px;
+}
+
+/* ===============================
+   Work Timeline - Alternating Vertical
+   =============================== */
+.timeline.horizontal {
+  position: relative;
+  display: block;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.timeline.horizontal::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #00ffd8, #008b7a);
+  transform: translateX(-50%);
+  border-radius: 2px;
+  box-shadow: 0 0 20px #00ffd8cc inset;
+}
+
+.timeline.horizontal .timeline-item {
+  width: 45%;
+  padding: 30px;
+  background: #002727;
+  margin-bottom: 2.5rem;
+  position: relative;
+  border-radius: 8px;
+  box-shadow: 0 0 12px #00ffd8aa inset;
+  border: 1px solid #00ffd8aa;
+  transition: all 0.3s ease;
+}
+
+.timeline.horizontal .timeline-item.left {
+  margin-left: 0;
+  margin-right: auto;
+  text-align: left;
+}
+
+.timeline.horizontal .timeline-item.right {
+  margin-left: auto;
+  margin-right: 0;
+  text-align: right;
+}
+
+.timeline.horizontal .timeline-item.left .timeline-icon {
+  right: -40px;
+  left: auto;
+}
+
+.timeline.horizontal .timeline-item.right .timeline-icon {
+  left: -40px;
+  right: auto;
+}
+
+/* ===============================
+   Education Timeline - CARD GRID
+   =============================== */
+.timeline.study-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  align-items: stretch;
+  margin: 0 auto;
+  padding: 20px 0;
+  position: relative;
+  background: none;
+}
+
+.timeline.study-grid .timeline-item {
+  background: #161616;
+  border-radius: 16px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.42);
+  border: 2px solid #333;
+  padding: 20px;
+  margin: 0;
+  width: 100%;
+  max-width: 330px;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s, border-color 0.3s;
+  position: relative;
+}
+
+.timeline.study-grid .timeline-item:hover {
+  border-color: #fff;
+  box-shadow: 0 8px 36px rgba(0,0,0,0.65);
+}
+
+.timeline.study-grid .timeline-content {
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  border: none;
+  text-align: left;
+}
+
+.timeline.study-grid .timeline-year {
+  margin-bottom: 0.5rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  background: #232323;
+  border-radius: 10px;
+  color: #ccc;
+  border: 1px solid #444;
+  display: inline-block;
+}
+
+.timeline.study-grid .timeline-icon {
+  position: absolute;
+  top: 0px;
+  right: -22px;
+  font-size: 2rem;
+  background: #232323;
+  border-radius: 50%;
+  padding: 0.35em;
+  border: 2px solid #888;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.22);
+  color: #fff;
+}
+
+.timeline.study-grid .timeline-item-title {
+  margin-top: 12px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.timeline.study-grid .timeline-description {
+  margin-top: 6px;
+  color: #bbb;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Responsive grid fallback */
+@media (max-width: 900px) {
+  .timeline.study-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .timeline.study-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 8px 0;
+  }
+}
+
+/* ===============================
+   Common Timeline Item & Modal
+   =============================== */
+.timeline-item {
+  background: #000;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.timeline-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.timeline-content {
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  text-align: left;
+  width: 90%;
+  margin: 0 auto;
+  overflow: visible;
+  position: relative;
+  z-index: 2;
+  background: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.timeline-year {
+  color: #ffffff;
+  font-size: clamp(16px, 3vw, 18px);
+  font-weight: 600;
+  display: inline-block;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  align-self: flex-start;
+}
+
+.timeline-item-title {
+  font-size: clamp(20px, 4vw, 24px);
+  font-weight: 600;
+  margin: 0;
+  color: #ffffff;
+  line-height: 1.3;
+}
+
+.timeline-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: 600;
+  color: #ffffff;
+  padding: 12px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: #1a1a1a;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  z-index: 1;
+  border: 2px solid #ffffff;
+}
+
+.timeline-icon:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  background: #ffffff;
+  color: #000000;
+}
+
+.timeline-description {
+  font-size: clamp(14px, 2.5vw, 16px);
+  color: #cccccc;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.timeline-description strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Timeline Roles List */
+.timeline-roles {
+  margin: 10px 0 0 0;
+  padding-left: 20px;
+  color: #cccccc;
+}
+
+.timeline-roles li {
+  font-size: clamp(14px, 2.5vw, 16px);
+  line-height: 1.6;
+  margin-bottom: 5px;
+  color: #cccccc;
+}
+
+.timeline-roles li::marker {
+  color: #ffffff;
+}
+
+strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background: #1a1a1a;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: left;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  position: relative;
+  animation: modalSlideIn 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.modal-content h2 {
+  font-size: clamp(22px, 4vw, 26px);
+  font-weight: 600;
+  margin: 0 0 15px 0;
+  color: #ffffff;
+  line-height: 1.3;
+}
+
+.modal-content p {
+  font-size: clamp(14px, 2.5vw, 16px);
+  color: #cccccc;
+  line-height: 1.6;
+  margin: 10px 0;
+}
+
+.modal-content strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+@keyframes modalSlideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #ffffff;
+  transition: color 0.3s ease;
+  font-weight: bold;
+}
+
+.close-button:hover {
+  color: #cccccc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .timeline-container {
+    padding: 1.5rem;
+  }
+  .timeline.horizontal,
+  .timeline.vertical,
+  .timeline.study-grid {
+    max-width: 100%;
+    padding: 1rem;
+  }
+  .timeline.horizontal .timeline-item,
+  .timeline.vertical .timeline-item,
+  .timeline.study-grid .timeline-item {
+    width: 100% !important;
+    margin: 0 0 1.5rem 0 !important;
+    text-align: left !important;
+    max-width: 100% !important;
+  }
+  .timeline.horizontal .timeline-item.left,
+  .timeline.horizontal .timeline-item.right {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    text-align: left !important;
+  }
+  .timeline.horizontal .timeline-icon,
+  .timeline.vertical .timeline-icon,
+  .timeline.study-grid .timeline-icon {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline-container {
+    padding: 1rem;
+  }
+  .timeline.horizontal,
+  .timeline.vertical,
+  .timeline.study-grid {
+    gap: 10px;
+  }
+  .timeline-content,
+  .timeline.study-grid .timeline-content {
+    width: 100%;
+    padding: 12px;
+  }
+  .timeline-icon,
+  .timeline.study-grid .timeline-icon {
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 20px !important;
+    top: 7px !important;
+    right: 7px !important;
+  }
+  .modal-content {
+    padding: 20px;
+  }
+  .title-box {
+    margin-bottom: 1rem;
+    padding: 10px;
+  }
+}
+
+/* Custom scrollbar styling */
+.timeline-container::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.timeline-container::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 4px;
+}
+
+.timeline-container::-webkit-scrollbar-thumb {
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+.timeline-container::-webkit-scrollbar-thumb:hover {
+  background: #cccccc;
+}
+
+
+.timeline.study-grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 2rem;
+  margin: 0 auto;
+  padding: 20px 0;
+  overflow-x: auto;
+}
+
+.timeline.study-grid .timeline-item {
+  flex: 0 0 325px;         /* fixed width, no shrink, no grow */
+  max-width: 325px;
+  width: 325px;
+  margin: 0;
+}
+
+@media (max-width: 1600px) {
+  .timeline.study-grid .timeline-item {
+    flex: 0 0 300px;
+    max-width: 300px;
+    width: 300px;
+  }
+}
+
+@media (max-width: 900px) {
+  .timeline.study-grid {
+    gap: 1rem;
+  }
+  .timeline.study-grid .timeline-item {
+    flex: 0 0 260px;
+    max-width: 260px;
+    width: 260px;
+  }
+}
+
+@media (max-width: 600px) {
+  .timeline.study-grid {
+    gap: 0.7rem;
+  }
+  .timeline.study-grid .timeline-item {
+    flex: 0 0 210px;
+    max-width: 210px;
+    width: 210px;
+  }
+}
+
+.timeline.study-grid::-webkit-scrollbar {
+  height: 7px;
+  background: #181818;
+  border-radius: 4px;
+}
+.timeline.study-grid::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+
+.timeline.study-grid {
+  position: relative; /* Ensure container is positionable */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 2rem;
+  margin: 0 auto;
+  padding: 35px 0 20px 0; /* top padding leaves room for line */
+  overflow-x: auto;
+}
+
+/* Horizontal connecting line under cards */
+.timeline.study-grid::before {
+  content: "";
+  position: absolute;
+  top: 28px; /* Adjust as needed to place between icons/year and card body */
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #333 0%, #fff 50%, #333 100%);
+  z-index: 1;
+  border-radius: 3px;
+  opacity: 0.7;
+}
+
+/* Cards positioned above the line (make sure cards are higher z-index if needed) */
+.timeline.study-grid .timeline-item {
+  position: relative;
+  z-index: 2;
+  background: #161616;
+  border-radius: 16px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.42);
+  border: 2px solid #333;
+  padding: 20px;
+  margin: 0;
+  flex: 0 0 325px;
+  max-width: 325px;
+  width: 325px;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+/* Optional: vertical "stub" connectors from the line up to each card (advanced, for visual touch) */
+.timeline.study-grid .timeline-item::before {
+  content: '';
+  position: absolute;
+  top: -22px; /* Adjust to connect to the main line above */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 22px;
+  background: #fff;
+  opacity: 0.5;
+  border-radius: 2px;
+  z-index: 1;
+}
+
+

@@ -1,0 +1,399 @@
+/* ===============================
+   CARD CONTAINER - HOME COMPATIBLE
+   =============================== */
+.card-container {
+  position: relative;
+  border-radius: 15px;
+  /* background: rgba(255, 255, 255, 0.05); */
+    background: #000;
+  text-align: center;
+  gap: 15px;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  margin: clamp(1rem, 3vw, 20px) 0;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  transition: all 0.4s ease;
+  overflow: hidden;
+  perspective: 1000px;
+  
+  /* Initial animation state */
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+/* Visible animation - matching Home.css timing */
+.card-container.visible {
+  animation: slideInCard 0.8s ease-out var(--animation-delay, 0s) both;
+}
+
+@keyframes slideInCard {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ===============================
+   HOVER EFFECTS
+   =============================== */
+.card-container:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(255, 255, 255, 0.1);
+}
+
+/* ===============================
+   BACKGROUND SHINE EFFECT
+   =============================== */
+.card-shine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.05) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+  pointer-events: none;
+}
+
+.card-container.hovered .card-shine {
+  transform: translateX(100%);
+}
+
+/* ===============================
+   CORNER DECORATIONS
+   =============================== */
+.card-corners {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid transparent;
+  transition: all 0.4s ease;
+  opacity: 0;
+}
+
+.corner-tl {
+  top: 15px;
+  left: 15px;
+  border-top-color: rgba(255, 255, 255, 0.6);
+  border-left-color: rgba(255, 255, 255, 0.6);
+}
+
+.corner-tr {
+  top: 15px;
+  right: 15px;
+  border-top-color: rgba(255, 255, 255, 0.6);
+  border-right-color: rgba(255, 255, 255, 0.6);
+}
+
+.corner-bl {
+  bottom: 15px;
+  left: 15px;
+  border-bottom-color: rgba(255, 255, 255, 0.6);
+  border-left-color: rgba(255, 255, 255, 0.6);
+}
+
+.corner-br {
+  bottom: 15px;
+  right: 15px;
+  border-bottom-color: rgba(255, 255, 255, 0.6);
+  border-right-color: rgba(255, 255, 255, 0.6);
+}
+
+.card-container.hovered .corner {
+  opacity: 1;
+}
+
+/* ===============================
+   CONTENT STYLING
+   =============================== */
+.card-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Card Title - matching Home.css styling */
+.card-title {
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  font-weight: 700;
+  margin: 0 0 1.5rem 0;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+  align-self: center;
+}
+
+.card-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 60px;
+  height: 2px;
+  background: #fff;
+  transition: transform 0.4s ease;
+  transform-origin: center;
+}
+
+.card-container.visible .card-title::after {
+  animation: expandUnderline 0.6s ease calc(var(--animation-delay, 0s) + 0.4s) forwards;
+}
+
+@keyframes expandUnderline {
+  to {
+    transform: translateX(-50%) scaleX(1);
+  }
+}
+
+.card-container:hover .card-title::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* Card Summary */
+.card-summary {
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+.card-summary h4 {
+  font-weight: bold;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.card-summary p {
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* List styling - matching Home.css */
+.card-summary ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card-summary li {
+  padding: 0.8rem 0;
+  position: relative;
+  padding-left: 2rem;
+  transition: all 0.3s ease;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.card-summary li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #fff;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.card-summary li:hover {
+  transform: translateX(10px);
+  color: #fff;
+}
+
+.card-summary li:hover::before {
+  transform: translateX(5px);
+}
+
+/* Strong text styling */
+.card-summary strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ===============================
+   ANIMATED BORDER
+   =============================== */
+.card-border-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #fff, transparent);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+  z-index: 3;
+}
+
+.card-container:hover .card-border-animation {
+  transform: scaleX(1);
+}
+
+/* ===============================
+   RESPONSIVE DESIGN
+   =============================== */
+
+/* Large screens */
+@media (min-width: 1200px) {
+  .card-container {
+    max-width: 100%;
+  }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  .card-container {
+    padding: clamp(1.5rem, 4vw, 2rem);
+    margin: 15px 0;
+  }
+
+  .corner {
+    width: 15px;
+    height: 15px;
+  }
+
+  .corner-tl,
+  .corner-tr {
+    top: 10px;
+  }
+
+  .corner-bl,
+  .corner-br {
+    bottom: 10px;
+  }
+
+  .corner-tl,
+  .corner-bl {
+    left: 10px;
+  }
+
+  .corner-tr,
+  .corner-br {
+    right: 10px;
+  }
+
+  .card-title::after {
+    width: 50px;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  .card-container {
+    padding: 1.5rem;
+    margin: 10px 0;
+    gap: 12px;
+  }
+
+  .card-summary li {
+    padding-left: 1.5rem;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+  }
+
+  .card-title::after {
+    width: 40px;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 360px) {
+  .card-container {
+    padding: 1rem;
+    border-width: 1px;
+  }
+}
+
+/* ===============================
+   PERFORMANCE OPTIMIZATIONS
+   =============================== */
+.card-container {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+.card-container.hovered {
+  will-change: transform;
+}
+
+/* ===============================
+   ACCESSIBILITY
+   =============================== */
+.card-container:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+.card-container:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .card-container,
+  .card-container *,
+  .card-container::before,
+  .card-container::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #fff;
+  transition: transform 0.2s ease;
+}
+
+.skill-item:hover {
+  transform: scale(1.1);
+}
+
+.skill-icon {
+  font-size: 18px;
+}
+
+.skill-text {
+  font-weight: 500;
+}
