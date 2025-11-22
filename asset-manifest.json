@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/Aamit_Portfolio/static/css/main.b6fe097d.css",
+    "main.js": "/Aamit_Portfolio/static/js/main.ad985176.js",
+    "static/media/portfolio.jpg": "/Aamit_Portfolio/static/media/portfolio.4105c69193c93e52a5a0.jpg",
+    "static/media/logoPort.webp": "/Aamit_Portfolio/static/media/logoPort.873b1b788fc70740c9ab.webp",
+    "static/media/tms.webp": "/Aamit_Portfolio/static/media/tms.eb532bc9ee679b43ad8a.webp",
+    "static/media/wz.webp": "/Aamit_Portfolio/static/media/wz.3ab16866b363b4683d11.webp",
+    "index.html": "/Aamit_Portfolio/index.html",
+    "main.b6fe097d.css.map": "/Aamit_Portfolio/static/css/main.b6fe097d.css.map",
+    "main.ad985176.js.map": "/Aamit_Portfolio/static/js/main.ad985176.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b6fe097d.css",
+    "static/js/main.ad985176.js"
+  ]
+}
